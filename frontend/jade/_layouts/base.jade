@@ -1,0 +1,20 @@
+//- layout.jade
+doctype html
+html
+	head
+		meta(charset="UTF-8")
+		block title
+			title Default title
+		meta(revisit-after="1 Days")
+		meta(robots="index, follow")
+		meta(name="description", content="Descripcion")
+		meta(name="keywords", content="Keywords")
+		link(href="/static/css/vendor.css")
+		block css
+			//- append css file
+	body
+		block content
+
+		script(src='/static/js/vendor.js')
+		block js
+			//- append js fies

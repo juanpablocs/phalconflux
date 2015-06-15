@@ -1,0 +1,22 @@
+{
+  "name": "PhalconFlux",
+  "version": "1.0.0",
+  "description": "skeleton by juanpablocs21@gmail.com",
+  "main": "public/index.php",
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:jpmaster/phalconflux.git"
+  },
+  "author": "Cocolabs SAC <team@cocolabs.pe>",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-concat": "^2.5.2",
+    "gulp-stylus": "^2.0.1",
+    "gulp-uglify": "^1.2.0",
+    "gulp-jade": "^1.0.1",
+    "gulp-util": "^3.0.4",
+    "jade": "^1.11.0",
+    "gulp-rename": "^1.2.2"
+  }
+}
