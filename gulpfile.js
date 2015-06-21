@@ -2,9 +2,18 @@ var gulp    = require('gulp'),
     gutil   = require('gulp-util'),
     uglify  = require('gulp-uglify'),
     stylus  = require('gulp-stylus'),
-    concat  = require('gulp-concat'),
+    concat  = require('gulp-concat-util'),
     jade    = require('gulp-jade'),
+    coffee  = require('gulp-coffee'),
+    glob    = require('glob'),
+    notify = require('gulp-notify'),
+    sourcemaps = require('gulp-sourcemaps'),
     rename  = require('gulp-rename');
+
+var message = {}
+    message.not_modified  = '/* This file is generated — do not edit by hand! */\n';
+    message.finish_coffee = 'Finished minifying CoffeeScript';
+
 var path = {
       src:{
         js      : {
@@ -54,8 +63,34 @@ gulp.task('jade', function () {
       pretty: true,
     }))
     .pipe(rename({extname: '.phtml'}))
-    .pipe(gulp.dest('backend/views/modules/'))
-})
+    .pipe(concat.header("<!-- This file is generated4 — do not edit by hand! -->\n"))
+    .pipe(gulp.dest('backend/views/modules/'));
+});
+
+gulp.task('coffee', function () {
+  var modules = glob.sync('frontend/coffee/modules/*/');
+      modules.forEach(function(folder)
+      {
+        var module = folder.match(/.+\/(.+)\/$/)[1];       
+        gulp.src([folder + '*.coffee'])
+          .pipe(coffee())
+          .pipe(sourcemaps.init())
+          .pipe(concat(module + '.min.js'))
+          .pipe(uglify())
+          .pipe(concat.header(message.coffee_not_modified))
+          .pipe(sourcemaps.write('./'))
+          .pipe(gulp.dest('public/static/js/'))
+          .pipe(notify({ message: message.finish_coffee}));
+      });
+});
+
+gulp.task('vendor', function () {
+  var modules = glob.sync('frontend/coffee/modules/*/');
+      modules.forEach(function(folder)
+      {
+        
+      });
+});
 
 
 //compilando templates

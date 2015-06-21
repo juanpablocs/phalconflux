@@ -1,0 +1,22 @@
+{
+  "name": "phalconflux",
+  "version": "0.0.1",
+  "homepage": "https://github.com/juanpablocs/phalconflux",
+  "authors": [
+    "juan pablo <juanpablocs21@gmail.com>"
+  ],
+  "main": "public/index.php",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.5",
+    "semantic-ui": "~1.12.3"
+  }
+}

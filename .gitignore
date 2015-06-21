@@ -1,3 +1,9 @@
 node_modules/
+bower_components/
 backend/views/modules/*
+frontend/vendor/*
+public/static/js/*
+public/static/css/*
+public/static/img/*
+public/static/fonts/*
 .DS_Store
